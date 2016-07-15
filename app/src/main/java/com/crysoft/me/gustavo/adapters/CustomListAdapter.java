@@ -22,9 +22,9 @@ public class CustomListAdapter extends ArrayAdapter<String> {
     private int[] tabImages = {
             R.drawable.ic_home_orange,
             R.drawable.ic_location_orange,
+            R.drawable.ic_mechanic_orange,
             R.drawable.ic_account_orange,
-            R.drawable.ic_deal_orange,
-            R.drawable.ic_help_orange
+            R.drawable.ic_repairs
 
     };
 

@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import com.crysoft.me.gustavo.fragments.CartFragment;
 import com.crysoft.me.gustavo.fragments.HomeFragment;
+import com.crysoft.me.gustavo.fragments.MechanicFragment;
 import com.crysoft.me.gustavo.fragments.RepairFragment;
 import com.crysoft.me.gustavo.fragments.ShopFragment;
 import com.crysoft.me.gustavo.fragments.StoreFragment;
@@ -18,15 +19,15 @@ import com.crysoft.me.gustavo.fragments.StoreFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,StoreFragment.OnFragmentInteractionListener,CartFragment.OnFragmentInteractionListener,ShopFragment.OnFragmentInteractionListener,RepairFragment.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,StoreFragment.OnFragmentInteractionListener,MechanicFragment.OnFragmentInteractionListener,ShopFragment.OnFragmentInteractionListener,RepairFragment.OnFragmentInteractionListener {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private int[] tabIcons = {
             R.drawable.ic_home,
             R.drawable.ic_discover,
             R.drawable.ic_location,
-            R.drawable.ic_help,
-            R.drawable.ic_cart
+            R.drawable.ic_mechanic,
+            R.drawable.ic_help
     };
 
     @Override
@@ -56,8 +57,8 @@ public class HomeActivity extends AppCompatActivity implements HomeFragment.OnFr
         adapter.addFragment(new HomeFragment());
         adapter.addFragment(new ShopFragment());
         adapter.addFragment(new StoreFragment());
+        adapter.addFragment(new MechanicFragment());
         adapter.addFragment(new RepairFragment());
-        adapter.addFragment(new CartFragment());
         viewPager.setAdapter(adapter);
     }
 

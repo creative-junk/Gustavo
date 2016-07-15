@@ -1,13 +1,56 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorGrayBackground"
     tools:context="com.crysoft.me.gustavo.fragments.ShopFragment">
 
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/search_bg"
+        android:hint="Search Part"
+        android:paddingLeft="20dp"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="15dp" />
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvCategory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etSearch"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Category"
+        android:textSize="15dp" />
 
-</FrameLayout>
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCategory"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginLeft="20dp">
+
+    </android.support.v7.widget.AppCompatSpinner>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/spinnerCategory"
+        android:layout_marginTop="50dp"
+        android:textSize="15dp"
+        android:text="Find"
+        android:textColor="@android:color/white"
+        />
+
+</RelativeLayout>

@@ -5,10 +5,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.crysoft.me.gustavo.R;
 import com.crysoft.me.gustavo.adapters.CustomListAdapter;
@@ -18,7 +22,8 @@ public class HomeFragment extends Fragment {
             "Find a Part","Find a Store","Find a Mechanic","Deals & Specials","Repairs Help"
     };
 
-    ListView listView;
+    private ListView listView;
+    private ViewPager viewPager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -37,17 +42,51 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listView = (ListView) getActivity().findViewById(R.id.homeList);
+        //get ViewPager for changing Tabs
+        viewPager = (ViewPager) getActivity().findViewById(R.id.viewpager);
+        //Setup the ListView
+        listView = (ListView) getActivity().findViewById(android.R.id.list);
         CustomListAdapter listAdapter = new CustomListAdapter(getActivity(),tabNames);
         listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = (String) listView.getItemAtPosition(position);
+                //Toast.makeText(getActivity(), item + "Selected", Toast.LENGTH_LONG).show();
+                switch (item){
+                    case "Find a Part":
+                       viewPager.setCurrentItem(1);
+                        break;
+                    case "Find a Store":
+                        viewPager.setCurrentItem(2);
+                        break;
+                    case "Find a Mechanic":
+                        viewPager.setCurrentItem(3);
+                        break;
+                    case "Deals & Specials":
+
+                        break;
+                    case "Repairs Help":
+                        viewPager.setCurrentItem(4);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+
+        return v;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -88,4 +127,5 @@ public class HomeFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
